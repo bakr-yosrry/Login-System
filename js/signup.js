@@ -32,7 +32,7 @@ btn.addEventListener("click", () => {
   users.push({ name, email, password });
   localStorage.setItem("users", JSON.stringify(users));
 
-  msg.style.color = "green";
+  msg.className = "bg-success text-white p-2 rounded mt-2 w-50 mx-auto";
   msg.innerText = "Account created successfully!";
 
   setTimeout(() => (window.location.href = "index.html"), 1000);

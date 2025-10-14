@@ -20,7 +20,8 @@ loginBtn.addEventListener("click", function () {
   );
 
   if (foundUser) {
-    msg.style.color = "green";
+    msg.className = "bg-success text-white p-2 rounded mt-2 w-50 mx-auto";
+
     msg.innerText = "Login successful!";
     localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
 
@@ -28,7 +29,7 @@ loginBtn.addEventListener("click", function () {
       window.location.href = "home.html";
     }, 1000);
   } else {
-    msg.style.color = "red";
+    msg.className = "bg-danger text-white p-2 rounded mt-2 w-50 mx-auto";
     msg.innerText = "Invalid email or password!";
   }
 });
