@@ -1,14 +1,14 @@
-let users = JSON.parse(localStorage.getItem("users")) || [];
-let btn = document.getElementById("signupBtn");
-let msg = document.getElementById("msg");
+var users = JSON.parse(localStorage.getItem("users")) || [];
+var btn = document.getElementById("signupBtn");
+var msg = document.getElementById("msg");
 
-btn.addEventListener("click", () => {
-  let name = document.getElementById("signupName").value.trim();
-  let email = document.getElementById("signupEmail").value.trim().toLowerCase();
-  let password = document.getElementById("signupPassword").value.trim();
+btn.addEventListener("click", function () {
+  var name = document.getElementById("signupName").value;
+  var email = document.getElementById("signupEmail").value;
+  var password = document.getElementById("signupPassword").value;
 
-  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
   if (!emailRegex.test(email)) {
     msg.style.color = "red";
@@ -23,7 +23,7 @@ btn.addEventListener("click", () => {
     return;
   }
 
-  let exists = users.find((u) => u.email === email);
+  var exists = users.find((user) => user.email === email);
   if (exists) {
     msg.innerText = "Email already exists!";
     return;

@@ -1,28 +1,28 @@
 
-let emailInput = document.getElementById("loginEmail");
-let passwordInput = document.getElementById("loginPassword");
-let loginBtn = document.getElementById("loginBtn");
-let msg = document.getElementById("msg");
+var emailInput = document.getElementById("loginEmail");
+var passwordInput = document.getElementById("loginPassword");
+var loginBtn = document.getElementById("loginBtn");
+var msg = document.getElementById("msg");
 
-let users = JSON.parse(localStorage.getItem("users")) || [];
+var users = JSON.parse(localStorage.getItem("users")) || [];
 
 loginBtn.addEventListener("click", function () {
-  let email = emailInput.value.toLowerCase();
-  let password = passwordInput.value;
+  var email = emailInput.value.toLowerCase();
+  var password = passwordInput.value;
 
   if (email === "" || password === "") {
     msg.innerText = "Please fill in all fields";
     return;
   }
 
-  let foundUser = users.find(
-    (u) => u.email === email && u.password === password
+  var foundUser = users.find(
+    (user) => user.email === email && user.password === password
   );
 
   if (foundUser) {
     msg.className = "bg-success text-white p-2 rounded mt-2 w-50 mx-auto";
 
-    msg.innerText = "Login successful!";
+    msg.textContent = "Login successful!";
     localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
 
     setTimeout(() => {
@@ -30,6 +30,6 @@ loginBtn.addEventListener("click", function () {
     }, 1000);
   } else {
     msg.className = "bg-danger text-white p-2 rounded mt-2 w-50 mx-auto";
-    msg.innerText = "Invalid email or password!";
+    msg.textContent = "Invalid email or password!";
   }
 });
